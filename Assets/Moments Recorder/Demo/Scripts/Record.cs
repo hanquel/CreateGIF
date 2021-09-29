@@ -75,6 +75,22 @@ public class Record : MonoBehaviour
 			m_Recorder.Save();
 			m_Progress = 0f;
 		}
+
+		// 210929 hkyoo update
+		Debug.Log("Recorder State : " + m_Recorder.State.ToString());
+
+		if (m_IsSaving)
+			Debug.Log("Progress Report : " + m_Progress.ToString("F2") + "%");
+
+		if (!string.IsNullOrEmpty(m_LastFile))
+			Debug.Log("Last File Saved : " + m_LastFile);
+	}
+
+	// 210929 hkyoo update
+	public void SaveButton()
+    {
+		m_Recorder.Save();
+		m_Progress = 0f;
 	}
 
 	void OnGUI()

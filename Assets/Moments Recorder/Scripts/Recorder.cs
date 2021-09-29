@@ -28,6 +28,9 @@ using System.Collections.Generic;
 using Moments.Encoder;
 using ThreadPriority = System.Threading.ThreadPriority;
 
+// 210929 hkyoo update
+using System.IO;
+
 namespace Moments
 {
 	using UnityObject = UnityEngine.Object;
@@ -381,7 +384,10 @@ namespace Moments
 		// Pre-processing coroutine to extract frame data and send everything to a separate worker thread
 		IEnumerator PreProcess(string filename)
 		{
-			string filepath = SaveFolder + "/" + filename + ".gif";
+			// 210929 hkyoo update
+			string filepath = Path.Combine(SaveFolder, filename + ".gif");
+			//string filepath = SaveFolder + "/" + filename + ".gif";
+
 			List<GifFrame> frames = new List<GifFrame>(m_Frames.Count);
 
 			// Get a temporary texture to read RenderTexture data

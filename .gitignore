@@ -1,2 +1,6 @@
 *.gif
 Assets/GifCapture-*.*
+*.sln
+.vs
+XCode_Proj
+.vsconfig
